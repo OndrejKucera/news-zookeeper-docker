@@ -14,7 +14,7 @@ if [ "$1" == "-server" ]; then
     for i in $(seq $size); do
         echo "server.${i}=zookeeper-${i}.${vnet}:2888:3888" >> ${ZOOKEEPER_CONF_DIR}/zoo.cfg
     done
-    exec su-exec zookeeper ${ZOOKEEPER_HOME}/bin/zkServer.sh start-foreground
+    exec ${ZOOKEEPER_HOME}/bin/zkServer.sh start-foreground
 fi
 
 exec "$@"
